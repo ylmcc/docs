@@ -62,6 +62,7 @@ Day to day running of things.
 - [Gratuitous ARP](procedures/gratuitousarp) (or, how to force update an IP
   address's associated MAC on the router and other machines)
 - [JunOS Configuration](network/junos)
+- [iDRAC Network Setup](procedures/idrac-setup)
 
 #### WWW
 
