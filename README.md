@@ -14,13 +14,10 @@ The docs are built using mkdocs. To bring up a local server with a copy of the
 docs just run
 
 ```bash
-docker-compose up docs
-```
-
-To build the docs just run
-
-```bash
-docker-compose up -d docs
+python3 -m venv .venv
+chmod +x -R .venv/bin
+. .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Testing locally
@@ -29,9 +26,14 @@ When you make a change make sure it works by building it locally.
 
 Run:
 
-```bash
-docker-compose run --rm docs mkdocs build
-docker-compose run --rm test
+```sh
+mkdocs build -s -v
 ```
 
 This will test the docs build and if there are any dead links in them
+
+To lint the Markdown locally, use this command (downloads very fast):
+
+```bash
+docker run --rm -v $(pwd):/docs ruby:2-alpine sh -c 'gem install mdl && mdl /docs/docs/ -s /docs/.markdown.style.rb'
+```
